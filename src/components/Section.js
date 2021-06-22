@@ -1,21 +1,27 @@
 import React from "react";
 import Styled from "styled-components";
+import Fade from "react-reveal/Fade";
 
 function Section(props) {
   return (
     <Wrap bgImage={props.backgroundImg}>
-      <ItemText>
-        <h1>{props.title}</h1>
-        <p>{props.desscription}</p>
-      </ItemText>
+      <Fade bottom>
+        <ItemText>
+          <h1>{props.title}</h1>
+          <p>{props.desscription}</p>
+        </ItemText>
+      </Fade>
 
       <Buttons>
-        <ButtonGroup>
-          <LeftButton>{props.leftButton}</LeftButton>
-          {/* Display the right button only if the button is passed from the home.js */}
-          {props.rightButton && <RightButton>{props.rightButton}</RightButton>}
-        </ButtonGroup>
-
+        <Fade bottom>
+          <ButtonGroup>
+            <LeftButton>{props.leftButton}</LeftButton>
+            {/* Display the right button only if the button is passed from the home.js */}
+            {props.rightButton && (
+              <RightButton>{props.rightButton}</RightButton>
+            )}
+          </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
     </Wrap>
